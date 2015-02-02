@@ -2,7 +2,7 @@
 %define gstreamer    gstreamer
 
 Name:        %{gstreamer}%{majorminor}-libav
-Version:     1.4.4
+Version:     1.4.5
 Release:     1
 Summary:     GStreamer Streaming-media framework plug-in using libav (FFmpeg).
 License:     LGPLv2+
