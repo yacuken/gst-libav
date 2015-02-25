@@ -46,7 +46,7 @@ NOCONFIGURE=1 ./autogen.sh
   --enable-gtk-doc-pdf=no \
   --enable-orc \
   --enable-lgpl \
-  --with-libav-extra-configure="--disable-encoders --disable-muxers --disable-demuxers --disable-decoders --enable-decoder=aac --disable-yasm"
+  --with-libav-extra-configure="--disable-encoders --disable-muxers --disable-demuxers --disable-decoders --enable-decoder=aac --enable-decoder=mp3 --disable-yasm"
 
 make %{?jobs:-j%jobs}
 
