@@ -9,6 +9,7 @@ License:     LGPLv2+
 Group:       Applications/Multimedia
 URL:         http://gstreamer.freedesktop.org/
 Source:      http://gstreamer.freedesktop.org/src/gst-libav/gstreamer1.0-libav-%{version}.tar.xz
+Patch0:      gst-libav_priority_override.patch
 BuildRequires: pkgconfig(gstreamer-plugins-base-1.0)
 BuildRequires: python
 BuildRequires: autoconf
@@ -32,6 +33,7 @@ multimedia formats.
 
 %prep
 %setup -q -n %{name}-%{version}/gst-libav
+%patch0 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh

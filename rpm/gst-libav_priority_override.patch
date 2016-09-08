@@ -1,0 +1,48 @@
+diff --git a/ext/libav/gstavauddec.c b/ext/libav/gstavauddec.c
+index dd32466..fe81660 100644
+--- a/ext/libav/gstavauddec.c
++++ b/ext/libav/gstavauddec.c
+@@ -899,15 +899,15 @@ gst_ffmpegauddec_register (GstPlugin * plugin)
+       case AV_CODEC_ID_RA_144:
+       case AV_CODEC_ID_RA_288:
+       case AV_CODEC_ID_COOK:
+-        rank = GST_RANK_PRIMARY;
++        rank = GST_RANK_PRIMARY + 4;
+         break;
+         /* SIPR: decoder should have a higher rank than realaudiodec.
+          */
+       case AV_CODEC_ID_SIPR:
+-        rank = GST_RANK_SECONDARY;
++        rank = GST_RANK_PRIMARY + 3;
+         break;
+       default:
+-        rank = GST_RANK_MARGINAL;
++        rank = GST_RANK_PRIMARY + 2;
+         break;
+     }
+     if (!gst_element_register (plugin, type_name, rank, type)) {
+diff --git a/ext/libav/gstavviddec.c b/ext/libav/gstavviddec.c
+index 5a1b7ed..04246a7 100644
+--- a/ext/libav/gstavviddec.c
++++ b/ext/libav/gstavviddec.c
+@@ -1985,17 +1985,17 @@ gst_ffmpegviddec_register (GstPlugin * plugin)
+       case AV_CODEC_ID_RV20:
+       case AV_CODEC_ID_RV30:
+       case AV_CODEC_ID_RV40:
+-        rank = GST_RANK_PRIMARY;
++        rank = GST_RANK_PRIMARY + 4;
+         break;
+         /* DVVIDEO: we have a good dv decoder, fast on both ppc as well as x86.
+          * They say libdv's quality is better though. leave as secondary.
+          * note: if you change this, see the code in gstdv.c in good/ext/dv.
+          */
+       case AV_CODEC_ID_DVVIDEO:
+-        rank = GST_RANK_SECONDARY;
++        rank = GST_RANK_PRIMARY + 3;
+         break;
+       default:
+-        rank = GST_RANK_MARGINAL;
++        rank = GST_RANK_PRIMARY + 2;
+         break;
+     }
+if (!gst_element_register (plugin, type_name, rank, type)) {
