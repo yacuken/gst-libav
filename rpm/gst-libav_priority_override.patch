@@ -45,4 +45,4 @@ index 5a1b7ed..04246a7 100644
 +        rank = GST_RANK_PRIMARY + 2;
          break;
      }
-if (!gst_element_register (plugin, type_name, rank, type)) {
+    if (!gst_element_register (plugin, type_name, rank, type)) {
